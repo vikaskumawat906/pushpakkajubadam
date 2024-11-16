@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-
+import Navbar from '../src/Components/Navbar'
+import Home from './Components/Home';
+import Footer from './Components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import DryFruitsAndNuts from './Components/DryFruitsAndNuts';
+import Products from './Components/Products';
+import About from './Components/About';
+import Category from './Components/Category';
+import StickyBox from './Components/StickyBox';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Router>
+        <Navbar />
+        <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dryfruitsandnuts" element={<DryFruitsAndNuts/>} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/aboutus" element={<About />} />
+        <Route path="/category/:category" element={<Category />} />
+        </Routes>
+        <Footer/>
+        <StickyBox/>
+        </Router>
+    </>
   );
 }
 
